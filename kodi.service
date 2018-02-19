@@ -1,0 +1,15 @@
+[Unit]
+Description = Kodi Media Center
+
+After = systemd-user-sessions.service network.target sound.target
+
+[Service]
+User = pi
+Group = pi
+Type = simple
+ExecStart = /usr/bin/kodi-standalone
+Restart = always
+RestartSec = 20
+
+[Install]
+WantedBy = multi-user.target

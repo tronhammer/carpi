@@ -1,0 +1,16 @@
+source-directory /etc/network/interfaces.d
+auto lo
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+auto wlan0
+
+iface wlan0 inet dhcp 
+	wpa-ssid "Make Wireless 2.4ghz Again"
+	wpa-psk "gentlecream666"
+
+#auto wlan0
+#allow-hotplug wlan0
+#iface wlan0 inet manual
+#wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
