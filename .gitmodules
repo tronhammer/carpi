@@ -1,0 +1,6 @@
+[submodule "RaspiUpsMonitor"]
+	path = RaspiUpsMonitor
+	url = https://github.com/michelep/RaspiUpsMonitor.git
+[submodule "Super-Simple-Raspberry-Pi-Audio-Receiver-Install"]
+	path = Super-Simple-Raspberry-Pi-Audio-Receiver-Install
+	url = https://github.com/BaReinhard/Super-Simple-Raspberry-Pi-Audio-Receiver-Install.git
