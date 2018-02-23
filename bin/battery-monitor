@@ -2,6 +2,7 @@
 
 import time
 import sys
+import traceback
 import os
 # import Raspi UPS Hat library
 import raspiupshat
@@ -14,14 +15,29 @@ voltageDeltaThreshold = 0.1;
 initialVoltage = raspiupshat.getv();
 initialBattery = raspiupshat.getsoc();
 
-while 1:
-    time.sleep(2)
-    currentVoltage = raspiupshat.getv();
-    voltageDelta = initialVoltage - currentVoltage;
+def run():
+    while 1:
+        time.sleep(2)
+        currentVoltage = raspiupshat.getv();
+        voltageDelta = initialVoltage - currentVoltage;
     
-    print "InitVol: %f InitVol: %f CurrVol: %f Delta: %f" % (initialBattery, initialVoltage, currentVoltage, voltageDelta);
+        print "InitVol: %f InitVol: %f CurrVol: %f Delta: %f" % (initialBattery, initialVoltage, currentVoltage, voltageDelta);
     
-    if voltageDelta > voltageDeltaThreshold:
-        print "Voltage power has dropped, powering off..."
-        os.system("omxplayer /home/pi/carpi/resources/media/low-voltage-english.m4a")
-        # os.system("sudo poweroff")
+        if voltageDelta > voltageDeltaThreshold:
+            print "Voltage power has dropped, powering off..."
+            os.system("omxplayer /home/pi/carpi/resources/media/low-voltage-english.m4a")
+            # os.system("sudo poweroff")
+            sys.exit(0)
+
+
+def main():
+    try:
+        run()
+    except KeyboardInterrupt:
+        print "Shutdown requested...exiting"
+    except Exception:
+        traceback.print_exc(file=sys.stdout)
+    sys.exit(0)
+
+if __name__ == "__main__":
+    main()
