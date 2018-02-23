@@ -47,10 +47,9 @@ print "----------- "
 
 while 1:
     time.sleep(2)
-    if raspiupshat.getsoc() == 100:
-    	print "Battery FULL"
-    if raspiupshat.getsoc() < 20:
-    	print "Battery LOW"
+    print "Voltage:%5.2fV" % raspiupshat.getv();
+    print "Battery:%5i%%" % raspiupshat.getsoc();
+    
 	if raspiupshat.getsoc() < 5:
 		print "System will shutdown now,bye!"
 		os.system("sudo shutdown")
