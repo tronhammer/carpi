@@ -8,7 +8,7 @@ import raspiupshat
 # init Raspi UPS Hat
 raspiupshat.init();
 
-voltageDeltaThreshold = 0.2;
+voltageDeltaThreshold = 0.12;
 
 initialVoltage = raspiupshat.getv();
 initialBattery = raspiupshat.getsoc();
@@ -18,7 +18,7 @@ while 1:
     currentVoltage = raspiupshat.getv();
     voltageDelta = initialVoltage - currentVoltage;
     
-    print "InitVol: %f CurrVol: %f Delta: %f" % (initialBattery, currentVoltage, voltageDelta);
+    print "InitVol: %f InitVol: %f CurrVol: %f Delta: %f" % (initialBattery, initialVoltage, currentVoltage, voltageDelta);
     
     if voltageDelta > voltageDeltaThreshold:
         print "Voltage power has dropped, powering off..."
