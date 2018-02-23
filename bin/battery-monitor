@@ -8,7 +8,7 @@ import raspiupshat
 # init Raspi UPS Hat
 raspiupshat.init();
 
-voltageDeltaThreshold = 0.12;
+voltageDeltaThreshold = 0.1;
 
 initialVoltage = raspiupshat.getv();
 initialBattery = raspiupshat.getsoc();
