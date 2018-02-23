@@ -22,4 +22,5 @@ while 1:
     
     if voltageDelta > voltageDeltaThreshold:
         print "Voltage power has dropped, powering off..."
+        os.system("omxplayer /home/pi/carpi/resources/media/low-voltage-english.m4a")
         # os.system("sudo poweroff")
