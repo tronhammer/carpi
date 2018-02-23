@@ -2,6 +2,7 @@
 
 import time
 import sys
+import os
 # import Raspi UPS Hat library
 import raspiupshat
 
