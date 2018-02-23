@@ -17,7 +17,7 @@
 #float getv();
 
 #Interface 2:
-#Function:    get battery capacity
+#Function:	get battery capacity
 #Return value: 0~100
 #float getsoc(); 
 #
@@ -46,10 +46,9 @@ sys.stdout.write('|+\n')
 print "----------- "
 
 while 1:
-    time.sleep(2)
-    print "Voltage:%5.2fV" % raspiupshat.getv();
-    print "Battery:%5i%%" % raspiupshat.getsoc();
-    
+	time.sleep(2)
+	print "Voltage:%5.2fV" % raspiupshat.getv();
+	print "Battery:%5i%%" % raspiupshat.getsoc();
 	if raspiupshat.getsoc() < 5:
 		print "System will shutdown now,bye!"
 		os.system("sudo shutdown")
