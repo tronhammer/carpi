@@ -22,6 +22,7 @@
 #float getsoc(); 
 #
 
+import time
 import sys
 # import Raspi UPS Hat library
 import raspiupshat
@@ -44,11 +45,12 @@ for i in range(0,10-n):
 sys.stdout.write('|+\n')
 print "----------- "
 
-if raspiupshat.getsoc() == 100:
-	print "Battery FULL"
-if raspiupshat.getsoc() < 20:
-	print "Battery LOW"
 while 1:
+    time.sleep(2)
+    if raspiupshat.getsoc() == 100:
+    	print "Battery FULL"
+    if raspiupshat.getsoc() < 20:
+    	print "Battery LOW"
 	if raspiupshat.getsoc() < 5:
 		print "System will shutdown now,bye!"
 		os.system("sudo shutdown")

@@ -1,9 +1,29 @@
 sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+sudo wpa_cli -i wlan0 reconfigure
+
+# ifconfig wlan0 up
+
 sudo service networking restart
 
+sudo mkdir /etc/default/kodi
+sudo systemctl daemon-reload
+
+
+
 sudo apt-get update
-sudo apt-get install git
+sudo apt-get install git -y
 git clone https://github.com/BaReinhard/Super-Simple-Raspberry-Pi-Audio-Receiver-Install.git
 cd Super-Simple-Raspberry-Pi-Audio-Receiver-Install
 sudo ./install.sh
+
+
+
+sudo systemctl enable kodi.service
+sudo systemctl daemon-reload
+
+
+# sudo apt-get install python-setuptools -y
+# cd RaspiUpsMonitor/
+# python setup.py build
+# sudo python setup.py install
